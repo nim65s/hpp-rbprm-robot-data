@@ -34,75 +34,85 @@ PKG_CONFIG_APPEND_LIBS(${PROJECT_NAME})
 
 SET(CATKIN_PACKAGE_SHARE_DESTINATION
   ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
+  
+SET(CATKIN_HRP2_PACKAGE_SHARE_DESTINATION
+  ${CMAKE_INSTALL_DATAROOTDIR}/hrp2-rbprm)
+  
+SET(CATKIN_HYQ_PACKAGE_SHARE_DESTINATION
+  ${CMAKE_INSTALL_DATAROOTDIR}/hyq-rbprm)
 
 install(FILES
-  data/package.xml
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  data/hrp2/package.xml
+  DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}
   )
 install(FILES
-  data/urdf/hrp2/hrp2_trunk.urdf
-  data/urdf/hrp2/hrp2_trunk_flexible.urdf
-  data/urdf/hrp2/hrp2_rom.urdf
-  data/urdf/hrp2/hrp2_larm_rom.urdf
-  data/urdf/hrp2/hrp2_rarm_rom.urdf
-  data/urdf/hrp2/hrp2_lleg_rom.urdf
-  data/urdf/hrp2/hrp2_rleg_rom.urdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf/hrp2
+  data/hyq/package.xml
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
 install(FILES
-  data/urdf/hyq/hyq_trunk.urdf
-  data/urdf/hyq/hyq_trunk_large.urdf
-  data/urdf/hyq/hyq_rhleg_rom.urdf
-  data/urdf/hyq/hyq_rfleg_rom.urdf
-  data/urdf/hyq/hyq_lhleg_rom.urdf
-  data/urdf/hyq/hyq_lfleg_rom.urdf
-  data/urdf/hyq/hyq_rom.urdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf/hyq
+  data/hrp2/urdf/hrp2_trunk.urdf
+  data/hrp2/urdf/hrp2_trunk_flexible.urdf
+  data/hrp2/urdf/hrp2_rom.urdf
+  data/hrp2/urdf/hrp2_larm_rom.urdf
+  data/hrp2/urdf/hrp2_rarm_rom.urdf
+  data/hrp2/urdf/hrp2_lleg_rom.urdf
+  data/hrp2/urdf/hrp2_rleg_rom.urdf
+  DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/urdf
   )
 install(FILES
-  data/srdf/hrp2/hrp2_trunk.srdf
-  data/srdf/hrp2/hrp2_trunk_flexible.srdf
-  data/srdf/hrp2/hrp2_rom.srdf
-  data/srdf/hrp2/hrp2_larm_rom.srdf
-  data/srdf/hrp2/hrp2_rarm_rom.srdf
-  data/srdf/hrp2/hrp2_lleg_rom.srdf
-  data/srdf/hrp2/hrp2_rleg_rom.srdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/srdf/hrp2
+  data/hyq/urdf/hyq_trunk.urdf
+  data/hyq/urdf/hyq_trunk_large.urdf
+  data/hyq/urdf/hyq_rhleg_rom.urdf
+  data/hyq/urdf/hyq_rfleg_rom.urdf
+  data/hyq/urdf/hyq_lhleg_rom.urdf
+  data/hyq/urdf/hyq_lfleg_rom.urdf
+  data/hyq/urdf/hyq_rom.urdf
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/urdf
+  )
+install(FILES
+  data/hrp2/srdf/hrp2_trunk.srdf
+  data/hrp2/srdf/hrp2_trunk_flexible.srdf
+  data/hrp2/srdf/hrp2_rom.srdf
+  data/hrp2/srdf/hrp2_larm_rom.srdf
+  data/hrp2/srdf/hrp2_rarm_rom.srdf
+  data/hrp2/srdf/hrp2_lleg_rom.srdf
+  data/hrp2/srdf/hrp2_rleg_rom.srdf
+  DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/srdf
   )
   
 install(FILES
-  data/srdf/hyq/hyq_trunk.srdf
-  data/srdf/hyq/hyq_trunk_large.srdf
-  data/srdf/hyq/hyq_rhleg_rom.srdf
-  data/srdf/hyq/hyq_rfleg_rom.srdf
-  data/srdf/hyq/hyq_lhleg_rom.srdf
-  data/srdf/hyq/hyq_lfleg_rom.srdf
-  data/srdf/hyq/hyq_rom.srdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/srdf
+  data/hyq/srdf/hyq_trunk.srdf
+  data/hyq/srdf/hyq_trunk_large.srdf
+  data/hyq/srdf/hyq_rhleg_rom.srdf
+  data/hyq/srdf/hyq_rfleg_rom.srdf
+  data/hyq/srdf/hyq_lhleg_rom.srdf
+  data/hyq/srdf/hyq_lfleg_rom.srdf
+  data/hyq/srdf/hyq_rom.srdf
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/srdf
   )
 install(FILES
-	data/meshes/hrp2/hrp2_trunk.stl
-	data/meshes/hrp2/hrp2_trunk_body.stl
-	data/meshes/hrp2/hrp2_trunk_torso.stl
-	data/meshes/hrp2/hrp2_trunk_body_view.dae
-	data/meshes/hrp2/hrp2_trunk_torso_view.dae
-	data/meshes/hrp2/hrp2_rom.stl
-	data/meshes/hrp2/hrp2_larm_rom.stl
-	data/meshes/hrp2/hrp2_rarm_rom.stl
-	data/meshes/hrp2/hrp2_lleg_rom.stl
-	data/meshes/hrp2/hrp2_rleg_rom.stl
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes/hrp2
+	data/hrp2/meshes/hrp2_trunk.stl
+	data/hrp2/meshes/hrp2_trunk_body.stl
+	data/hrp2/meshes/hrp2_trunk_torso.stl
+	data/hrp2/meshes/hrp2_trunk_body_view.dae
+	data/hrp2/meshes/hrp2_trunk_torso_view.dae
+	data/hrp2/meshes/hrp2_rom.stl
+	data/hrp2/meshes/hrp2_larm_rom.stl
+	data/hrp2/meshes/hrp2_rarm_rom.stl
+	data/hrp2/meshes/hrp2_lleg_rom.stl
+	data/hrp2/meshes/hrp2_rleg_rom.stl
+  DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/meshes
   )
 install(FILES
-	data/meshes/hyq/hyq_all.stl
-	data/meshes/hyq/hyq_trunk.stl
-	data/meshes/hyq/hyq_trunk_large.stl
-	data/meshes/hyq/hyq_rom.stl
-	data/meshes/hyq/hyq_rhleg_rom.stl
-	data/meshes/hyq/hyq_rfleg_rom.stl
-	data/meshes/hyq/hyq_lhleg_rom.stl
-	data/meshes/hyq/hyq_lfleg_rom.stl
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes/hyq
+	data/hyq/meshes/hyq_all.stl
+	data/hyq/meshes/hyq_trunk.stl
+	data/hyq/meshes/hyq_trunk_large.stl
+	data/hyq/meshes/hyq_rom.stl
+	data/hyq/meshes/hyq_rhleg_rom.stl
+	data/hyq/meshes/hyq_rfleg_rom.stl
+	data/hyq/meshes/hyq_lhleg_rom.stl
+	data/hyq/meshes/hyq_lfleg_rom.stl
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/meshes
   )
 
   

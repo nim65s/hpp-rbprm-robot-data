@@ -1,4 +1,4 @@
-<robot name="hrp2_rleg_rom">
+<robot name="hrp2_lleg_rom">
   <link name="base_link"/>
   <joint name="WAIST" type="fixed">
     <parent link="base_link"/>
@@ -9,7 +9,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0.003" />
       <geometry>
-        <mesh filename="package://hpp-rbprm-corba/meshes/hrp2_rleg_rom.stl"/>
+        <mesh filename="package://hrp2-rbprm/meshes/hrp2_lleg_rom.stl"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -18,7 +18,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0.003" />
       <geometry>
-        <mesh filename="package://hpp-rbprm-corba/meshes/hrp2_rleg_rom.stl"/>
+        <mesh filename="package://hrp2-rbprm/meshes/hrp2_lleg_rom.stl"/>
       </geometry>
     </collision>
   </link>

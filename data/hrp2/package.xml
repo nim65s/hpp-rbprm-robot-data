@@ -1,8 +1,8 @@
 <package>
-  <name>hpp-rbprm-corba</name>
+  <name>hrp2-rbprm</name>
   <version>0.1.0</version>
   <description>
-    Corba server bindings for rbprm.
+    Info Database for using rbprm with HRP-2.
   </description>
   <author>Steve Tonneau</author>
   <maintainer email="hpp@laas.fr">Steve Tonneau</maintainer>

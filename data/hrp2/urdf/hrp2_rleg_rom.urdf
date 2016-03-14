@@ -1,11 +1,26 @@
-<robot name="hrp2_rarm_rom">
+<robot name="hrp2_rleg_rom">
   <link name="base_link"/>
   <joint name="WAIST" type="fixed">
     <parent link="base_link"/>
     <child link="BODY"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
-  <link name="BODY">
+  <link name="BODY">   
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0.003" />
+      <geometry>
+        <mesh filename="package://hrp2-rbprm/meshes/hrp2_rleg_rom.stl"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0.003" />
+      <geometry>
+        <mesh filename="package://hrp2-rbprm/meshes/hrp2_rleg_rom.stl"/>
+      </geometry>
+    </collision>
   </link>
   <!-- Chest -->
   <joint name="CHEST_JOINT0" type="revolute">
@@ -24,22 +39,7 @@
     <axis xyz="0 1 0"/>
     <limit effort="278.9" lower="-0.0872665" upper="1.0472" velocity="2.3963"/>
   </joint>
-  <link name="torso">  
-    <visual>
-      <origin xyz="-0.032 -0 -0.3507" rpy="0 0 0.003" />
-      <geometry>
-        <mesh filename="package://hpp-rbprm-corba/meshes/hrp2_rarm_rom.stl"/>
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.032 -0 -0.3507" rpy="0 0 0.003" />
-      <geometry>
-        <mesh filename="package://hpp-rbprm-corba/meshes/hrp2_rarm_rom.stl"/>
-      </geometry>
-    </collision>
+  <link name="torso">
   </link>!-- Head -->
   <joint name="HEAD_JOINT0" type="revolute">
     <parent link="torso"/>
