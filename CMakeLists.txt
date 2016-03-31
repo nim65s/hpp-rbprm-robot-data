@@ -114,6 +114,13 @@ install(FILES
 	data/hyq/meshes/hyq_lfleg_rom.stl
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/meshes
   )
+install(FILES
+	data/hrp2/database/hrp2_larm.db
+	data/hrp2/database/hrp2_lleg.db
+	data/hrp2/database/hrp2_rleg.db
+	data/hrp2/database/hrp2_rarm.db
+  DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/database
+  )
 
   
 SETUP_PROJECT_FINALIZE()
