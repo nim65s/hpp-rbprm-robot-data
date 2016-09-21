@@ -125,10 +125,10 @@ install(FILES
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/database
   )
 install(FILES
-	data/hyq/database/hyq_rarm.db
-	data/hyq/database/hyq_larm.db
-	data/hyq/database/hyq_lleg.db
-	data/hyq/database/hyq_rleg.db
+        data/hyq/database/hyq_rfleg.db
+        data/hyq/database/hyq_lhleg.db
+        data/hyq/database/hyq_rhleg.db
+        data/hyq/database/hyq_lfleg.db
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/database
   )
 
