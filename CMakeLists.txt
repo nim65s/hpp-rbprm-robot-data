@@ -30,6 +30,9 @@ SET(PROJECT_URL "")
 
 SETUP_PROJECT ()
 
+# search for python
+FINDPYTHON(2.7 EXACT REQUIRED)
+
 PKG_CONFIG_APPEND_LIBS(${PROJECT_NAME})
 
 SET(CATKIN_PACKAGE_SHARE_DESTINATION
@@ -129,6 +132,34 @@ install(FILES
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/database
   )
 
-  
+install(FILES
+        data/hrp2/com_inequalities/__init__.py
+        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/
+)
+
+install(FILES
+        data/hrp2/com_inequalities/__init__.py
+        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/
+)
+
+
+install(FILES
+        data/hrp2/com_inequalities/__init__.py
+        data/hyq/com_inequalities/lfleg_com.ineq
+        data/hyq/com_inequalities/lhleg_com.ineq
+        data/hyq/com_inequalities/rhleg_com.ineq
+        data/hyq/com_inequalities/rfleg_com.ineq
+        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/hyq
+)
+
+install(FILES
+        data/hrp2/com_inequalities/__init__.py
+        data/hrp2/com_inequalities/LA_com.ineq
+        data/hrp2/com_inequalities/LL_com.ineq
+        data/hrp2/com_inequalities/RA_com.ineq
+        data/hrp2/com_inequalities/RL_com.ineq
+        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/hrp2
+)
+
 SETUP_PROJECT_FINALIZE()
 
