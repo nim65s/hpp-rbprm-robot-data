@@ -121,6 +121,13 @@ install(FILES
 	data/hrp2/database/hrp2_rarm.db
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/database
   )
+install(FILES
+	data/hyq/database/hyq_rarm.db
+	data/hyq/database/hyq_larm.db
+	data/hyq/database/hyq_lleg.db
+	data/hyq/database/hyq_rleg.db
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/database
+  )
 
   
 SETUP_PROJECT_FINALIZE()
