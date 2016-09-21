@@ -60,16 +60,16 @@ q_0 = fullBody.getCurrentConfig();
 
 
 def runall(lid, dbName):
-	fullBody.runLimbSampleAnalysis(lid, "isotropy", False)
+	fullBody.runLimbSampleAnalysis(lid, "isotropy", True)
 	fullBody.runLimbSampleAnalysis(lid, "minimumSingularValue", False)
-	fullBody.runLimbSampleAnalysis(lid, "selfCollisionProbability", False)
-	fullBody.runLimbSampleAnalysis(lid, "jointLimitsDistance", False)
-	fullBody.runLimbSampleAnalysis(lid, "manipulability", True)
+	#~ fullBody.runLimbSampleAnalysis(lid, "selfCollisionProbability", False)
+	fullBody.runLimbSampleAnalysis(lid, "manipulability", False)
+	fullBody.runLimbSampleAnalysis(lid, "jointLimitsDistance", True)
 	fullBody.saveLimbDatabase(lid, dbName)
 
 runall(rarmId, './hyq_rarm.db')
 runall(larmId, './hyq_larm.db')
 runall(lLegId, './hyq_lleg.db')
 runall(rLegId, './hyq_rleg.db')
-#~ plotOctreeValues(fullBody, "selfCollisionProbability", rarmId)
+plotOctreeValues(fullBody, "minimumSingularValue", rarmId)
 
