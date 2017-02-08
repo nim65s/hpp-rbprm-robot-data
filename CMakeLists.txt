@@ -43,6 +43,9 @@ SET(CATKIN_HRP2_PACKAGE_SHARE_DESTINATION
   
 SET(CATKIN_HYQ_PACKAGE_SHARE_DESTINATION
   ${CMAKE_INSTALL_DATAROOTDIR}/hyq-rbprm)
+  
+SET(CATKIN_TALOS_PACKAGE_SHARE_DESTINATION
+  ${CMAKE_INSTALL_DATAROOTDIR}/talos-rbprm)
 
 install(FILES
   data/hrp2/package.xml
@@ -53,6 +56,11 @@ install(FILES
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
 install(FILES
+  data/talos/package.xml
+  DESTINATION ${CATKIN_TALOS_PACKAGE_SHARE_DESTINATION}
+  )
+  
+install(FILES
   data/hrp2/urdf/hrp2_trunk.urdf
   data/hrp2/urdf/hrp2_trunk_flexible.urdf
   data/hrp2/urdf/hrp2_rom.urdf
@@ -61,6 +69,14 @@ install(FILES
   data/hrp2/urdf/hrp2_lleg_rom.urdf
   data/hrp2/urdf/hrp2_rleg_rom.urdf
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/urdf
+  )
+install(FILES
+  data/talos/urdf/talos_trunk.urdf
+  data/talos/urdf/talos_larm_rom.urdf
+  data/talos/urdf/talos_rarm_rom.urdf
+  data/talos/urdf/talos_lleg_rom.urdf
+  data/talos/urdf/talos_rleg_rom.urdf
+  DESTINATION ${CATKIN_TALOS_PACKAGE_SHARE_DESTINATION}/urdf
   )
 install(FILES
   data/hyq/urdf/hyq_trunk.urdf
@@ -81,6 +97,15 @@ install(FILES
   data/hrp2/srdf/hrp2_lleg_rom.srdf
   data/hrp2/srdf/hrp2_rleg_rom.srdf
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/srdf
+  )
+  
+install(FILES
+  data/talos/srdf/talos_trunk.srdf
+  data/talos/srdf/talos_larm_rom.srdf
+  data/talos/srdf/talos_rarm_rom.srdf
+  data/talos/srdf/talos_lleg_rom.srdf
+  data/talos/srdf/talos_rleg_rom.srdf
+  DESTINATION ${CATKIN_TALOS_PACKAGE_SHARE_DESTINATION}/srdf
   )
   
 install(FILES
@@ -105,6 +130,14 @@ install(FILES
 	data/hrp2/meshes/hrp2_lleg_rom.stl
 	data/hrp2/meshes/hrp2_rleg_rom.stl
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/meshes
+  )
+install(FILES
+	data/talos/meshes/talos_trunk.stl
+	data/talos/meshes/talos_larm_rom.stl
+	data/talos/meshes/talos_rarm_rom.stl
+	data/talos/meshes/talos_lleg_rom.stl
+	data/talos/meshes/talos_rleg_rom.stl
+  DESTINATION ${CATKIN_TALOS_PACKAGE_SHARE_DESTINATION}/meshes
   )
 install(FILES
 	data/hyq/meshes/hyq_all.stl
