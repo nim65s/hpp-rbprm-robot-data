@@ -194,5 +194,14 @@ install(FILES
         DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/hrp2
 )
 
+install(FILES
+        data/hrp2/com_inequalities/__init__.py
+        data/spiderman/com_inequalities/LA_com.ineq
+        data/spiderman/com_inequalities/LL_com.ineq
+        data/spiderman/com_inequalities/RA_com.ineq
+        data/spiderman/com_inequalities/RL_com.ineq
+        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/spiderman
+)
+
 SETUP_PROJECT_FINALIZE()
 

@@ -183,7 +183,7 @@
     <color rgba="0.0 0.8 0.0 1.0"/>
   </material>
   <material name="GreenPale">
-    <color rgba="0.0 0.8 0.0 0.3"/>
+    <color rgba="0.0 0.8 0.0 0.01"/>
   </material>
   <material name="Grey">
     <color rgba="0.7 0.7 0.7 1.0"/>
