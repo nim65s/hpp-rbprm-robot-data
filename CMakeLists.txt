@@ -131,12 +131,7 @@ install(FILES
 	data/hrp2/meshes/hrp2_rleg_rom.stl
   DESTINATION ${CATKIN_HRP2_PACKAGE_SHARE_DESTINATION}/meshes
   )
-install(FILES
-	data/talos/meshes/talos_trunk.stl
-	data/talos/meshes/talos_larm_rom.stl
-	data/talos/meshes/talos_rarm_rom.stl
-	data/talos/meshes/talos_lleg_rom.stl
-	data/talos/meshes/talos_rleg_rom.stl
+install(DIRECTORY	data/talos/meshes/
   DESTINATION ${CATKIN_TALOS_PACKAGE_SHARE_DESTINATION}/meshes
   )
 install(FILES

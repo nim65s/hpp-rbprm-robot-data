@@ -10,7 +10,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://talos-rbprm/meshes/talos_rarm_rom.stl" scale="1 1 1"/>
+        <mesh filename="package://talos-rbprm/meshes/talos_rarm_rom.dae" scale="1 1 1"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -36,7 +36,7 @@
     <child link="torso_1_link"/>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0722"/>
     <axis xyz="0 0 1"/>
-    <limit effort="78.0" lower="-1.308996939" upper="1.308996939" velocity="5.4"/>
+    <limit effort="78.0" lower="-1.25663706144" upper="1.25663706144" velocity="5.4"/>
   </joint>
   <!--************************-->
   <!--        BASE_LINK       -->
@@ -53,35 +53,7 @@
     <child link="torso_2_link"/>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="78.0" lower="-0.261799387799" upper="0.785398163397" velocity="5.4"/>
-  </joint>
-  <link name="head_1_link">
-    <inertial>
-      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00120 0.00145 0.02165"/>
-      <mass value="0.65988"/>
-      <inertia ixx="0.00122100000" ixy="-0.00000400000" ixz="0.00007000000" iyy="0.00092400000" iyz="-0.00004100000" izz="0.00103300000"/>
-    </inertial>
-  </link>
-  <joint name="head_1_joint" type="revolute">
-    <parent link="torso_2_link"/>
-    <child link="head_1_link"/>
-    <origin rpy="0.0 0.0 0.0" xyz="0.00000 0.00000 0.31600"/>
-    <axis xyz="0 1 0"/>
-    <limit effort="8.0" lower="-0.261799387799" upper="0.785398163397" velocity="1.0"/>
-  </joint>
-  <link name="head_2_link">
-    <inertial>
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01036 -0.00037 0.13778"/>
-      <mass value="1.40353"/>
-      <inertia ixx="0.00722500000" ixy="-0.00002500000" ixz="0.00032900000" iyy="0.00687300000" iyz="0.00004400000" izz="0.00437300000"/>
-    </inertial>   
-  </link>
-  <joint name="head_2_joint" type="revolute">
-    <parent link="head_1_link"/>
-    <child link="head_2_link"/>
-    <origin rpy="0.0 0.0 0.0" xyz="0.00000 0.00000 0.00000"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="4.0" lower="-1.308996939" upper="1.308996939" velocity="1.0"/>
+    <limit effort="78.0" lower="-0.226892802759" upper="0.733038285838" velocity="5.4"/>
   </joint>
   <!-- define global properties -->
   <!-- <xacro:property name="M_PI" value="3.1415926535897931" /> -->
