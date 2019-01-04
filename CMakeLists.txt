@@ -28,6 +28,8 @@ SET(PROJECT_NAME hpp-rbprm-robot-data)
 SET(PROJECT_DESCRIPTION "Database for robots using hpp-rbprm")
 SET(PROJECT_URL "")
 
+SET(CUSTOM_HEADER_DIR "hpp/rbprm-robot-data")
+
 SETUP_PROJECT ()
 
 # search for python
