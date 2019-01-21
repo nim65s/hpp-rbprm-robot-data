@@ -52,6 +52,11 @@ install(DIRECTORY
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
   
+install(DIRECTORY
+  data/hyq_description
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
+  )
+  
 install (FILES
   src/hpp/corbaserver/rbprm/hyq/robot.py
   src/hpp/corbaserver/rbprm/hyq/__init__.py
