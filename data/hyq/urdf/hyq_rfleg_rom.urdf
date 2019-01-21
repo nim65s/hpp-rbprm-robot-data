@@ -1,9 +1,9 @@
  <robot name="hyq_rfleg_rom">
-  <link name="base_link">
+  <link name="hyq_rfleg_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://hyq-rbprm/meshes/hyq/hyq_rfleg_rom.stl"/>
+        <mesh filename="package://hyq-rbprm/meshes/hyq_rfleg_rom.stl"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -12,7 +12,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://hyq-rbprm/meshes/hyq/hyq_rfleg_rom.stl"/>
+        <mesh filename="package://hyq-rbprm/meshes/hyq_rfleg_rom.stl"/>
       </geometry>
     </collision>
   </link>

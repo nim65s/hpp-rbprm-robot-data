@@ -47,76 +47,21 @@ install(FILES
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
   
-install(FILES
-  data/hyq/urdf/hyq_trunk.urdf
-  data/hyq/urdf/hyq_trunk_large.urdf
-  data/hyq/urdf/hyq_rhleg_rom.urdf
-  data/hyq/urdf/hyq_rfleg_rom.urdf
-  data/hyq/urdf/hyq_lhleg_rom.urdf
-  data/hyq/urdf/hyq_lfleg_rom.urdf
-  data/hyq/urdf/hyq_rom.urdf
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/urdf
+install(DIRECTORY
+  data/hyq
+  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
   
-  
-install(FILES
-  data/hyq/srdf/hyq_trunk.srdf
-  data/hyq/srdf/hyq_trunk_large.srdf
-  data/hyq/srdf/hyq_rhleg_rom.srdf
-  data/hyq/srdf/hyq_rfleg_rom.srdf
-  data/hyq/srdf/hyq_lhleg_rom.srdf
-  data/hyq/srdf/hyq_lfleg_rom.srdf
-  data/hyq/srdf/hyq_rom.srdf
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/srdf
-  )
-install(FILES
-	data/hyq/meshes/hyq_all.stl
-	data/hyq/meshes/hyq_trunk.stl
-	data/hyq/meshes/hyq_trunk_large.stl
-	data/hyq/meshes/hyq_rom.stl
-	data/hyq/meshes/hyq_rhleg_rom.stl
-	data/hyq/meshes/hyq_rfleg_rom.stl
-	data/hyq/meshes/hyq_lhleg_rom.stl
-	data/hyq/meshes/hyq_lfleg_rom.stl
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/meshes
-  )
-install(FILES
-        data/hyq/database/hyq_rfleg.db
-        data/hyq/database/hyq_lhleg.db
-        data/hyq/database/hyq_rhleg.db
-        data/hyq/database/hyq_lfleg.db
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}/database
-  )
+install (FILES
+  src/hpp/corbaserver/rbprm/hyq/robot.py
+  src/hpp/corbaserver/rbprm/hyq/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq)
 
-install(FILES
-        data/hyq/com_inequalities/__init__.py
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/
-)
+install (FILES
+  src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
+  src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
 
-install(FILES
-        data/hyq/com_inequalities/__init__.py
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/
-)
-
-
-install(FILES
-        data/hyq/com_inequalities/__init__.py
-        data/hyq/com_inequalities/lfleg_com.ineq
-        data/hyq/com_inequalities/lhleg_com.ineq
-        data/hyq/com_inequalities/rhleg_com.ineq
-        data/hyq/com_inequalities/rfleg_com.ineq
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/hyq
-)
-
-
-install(FILES
-        data/hyq/com_inequalities/__init__.py
-        data/spiderman/com_inequalities/LA_com.ineq
-        data/spiderman/com_inequalities/LL_com.ineq
-        data/spiderman/com_inequalities/RA_com.ineq
-        data/spiderman/com_inequalities/RL_com.ineq
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/data/com_inequalities/spiderman
-)
 
 SETUP_PROJECT_FINALIZE()
 
