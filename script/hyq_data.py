@@ -32,9 +32,9 @@ rfLeg = 'rf_haa_joint'
 # Last joint of the limb, as in urdf file
 rfFoot = 'rf_foot_joint'
 # Specifying the distance between last joint and contact surface
-offset = [0.,-0.021,0.]
+offset = [0.,0.,-0.021]
 # Specifying the contact surface direction when the limb is in rest pose
-normal = [0,1,0]
+normal = [0,0,1]
 # Specifying the rectangular contact surface length
 legx = 0.02; legy = 0.02
 # remaining parameters are the chosen heuristic (here, manipulability), and the resolution of the octree (here, 10 cm).
