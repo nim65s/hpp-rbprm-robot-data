@@ -67,7 +67,7 @@ class Robot (Parent):
     
     # informations required to generate the limbs databases the limbs : 
 
-    offset = [0.,-0.021,0.]
+    offset = [0.,0.,-0.021]
     normal = [0,0,1]
     legx = 0.02; legy = 0.02
     kinematicConstraintsPath="package://hyq-rbprm/com_inequalities/"
