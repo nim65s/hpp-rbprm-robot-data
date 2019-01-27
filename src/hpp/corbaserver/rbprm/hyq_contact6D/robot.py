@@ -28,22 +28,22 @@ class Robot (Parent):
     meshPackageName = "hyq_description"
     rootJointType = "freeflyer"
     urdfName = "hyq"
-    urdfSuffix = ""
+    urdfSuffix = "_contact6D"
     srdfSuffix = ""
 
     ## Information about the names of thes joints defining the limbs of the robot
     rLegId = 'rfleg'
     rleg = 'rf_haa_joint'
-    rfoot = 'rf_foot_joint'
+    rfoot = 'rf_foot_Z'
     lLegId = 'lhleg'
     lleg = 'lh_haa_joint'
-    lfoot = 'lh_foot_joint'
+    lfoot = 'lh_foot_Z'
     rArmId = 'rhleg'
     rarm = 'rh_haa_joint'
-    rhand = 'rh_foot_joint'
+    rhand = 'rh_foot_Z'
     lArmId = 'lfleg'
     larm = 'lf_haa_joint'
-    lhand = 'lf_foot_joint'
+    lhand = 'lf_foot_Z'
 
     referenceConfig = [0.,
      0.,
@@ -55,15 +55,19 @@ class Robot (Parent):
      0.17905666752078864,
      0.9253512562075908,
      -0.8776870832724601,
+       0, 0, 0,
      0.11147422537786231,
      -0.15843632504615043,
      1.150049183494211,
+        0, 0, 0,
      -0.1704998924604114,
      0.6859376445755911,
      -1.1831277202117043,
+    0, 0, 0,
      0.06262698472369518,
      -0.42708925470675,
-     1.2855999319965081]
+     1.2855999319965081,
+     0, 0, 0,]
     
     # informations required to generate the limbs databases the limbs : 
 

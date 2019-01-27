@@ -62,6 +62,12 @@ install (FILES
   src/hpp/corbaserver/rbprm/hyq/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq)
 
+
+install (FILES
+  src/hpp/corbaserver/rbprm/hyq_contact6D/robot.py
+  src/hpp/corbaserver/rbprm/hyq_contact6D/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_contact6D)
+
 install (FILES
   src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
   src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
