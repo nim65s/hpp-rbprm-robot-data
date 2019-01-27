@@ -86,7 +86,7 @@ class Robot (Parent):
     dict_limb_color_traj = {rfoot:[0,1,0,1], lfoot:[1,0,0,1],rhand:[0,0,1,1],lhand:[0.9,0.5,0,1]}
     FOOT_SAFETY_SIZE = 0.01
     # size of the contact surface (x,y)
-    dict_size={rfoot:[0.02 , 0.02], lfoot:[0.02 , 0.02],rhand:[0.02 , 0.02],lhand:[0.02 , 0.02]}
+    dict_size={rfoot:[0.04 , 0.04], lfoot:[0.04 , 0.04],rhand:[0.04 , 0.04],lhand:[0.04 , 0.04]}
 
     #various offset used by scripts
     MRsole_offset = SE3.Identity()
