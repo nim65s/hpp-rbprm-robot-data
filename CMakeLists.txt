@@ -48,7 +48,7 @@ install(FILES
   )
   
 install(DIRECTORY
-  data/hyq
+  data/hyq/
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
   )
   
