@@ -35,15 +35,15 @@ class Robot (Parent):
     rLegId = 'rfleg'
     rleg = 'rf_haa_joint'
     rfoot = 'rf_foot_joint'
-    lLegId = 'lhleg'
-    lleg = 'lh_haa_joint'
-    lfoot = 'lh_foot_joint'
+    lLegId = 'lfleg'
+    lleg = 'lf_haa_joint'
+    lfoot = 'lf_foot_joint'
+    lArmId = 'lhleg'
+    larm = 'lh_haa_joint'
+    lhand = 'lh_foot_joint'
     rArmId = 'rhleg'
     rarm = 'rh_haa_joint'
     rhand = 'rh_foot_joint'
-    lArmId = 'lfleg'
-    larm = 'lf_haa_joint'
-    lhand = 'lf_foot_joint'
 
     referenceConfig = [0.,
      0.,
