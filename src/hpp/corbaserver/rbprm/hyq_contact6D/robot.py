@@ -35,39 +35,49 @@ class Robot (Parent):
     rLegId = 'rfleg'
     rleg = 'rf_haa_joint'
     rfoot = 'rf_foot_Z'
-    lLegId = 'lhleg'
-    lleg = 'lh_haa_joint'
-    lfoot = 'lh_foot_Z'
+    lLegId = 'lfleg'
+    lleg = 'lf_haa_joint'
+    lfoot = 'lf_foot_Z'
+    lArmId = 'lhleg'
+    larm = 'lh_haa_joint'
+    lhand = 'lh_foot_Z'
     rArmId = 'rhleg'
     rarm = 'rh_haa_joint'
     rhand = 'rh_foot_Z'
-    lArmId = 'lfleg'
-    larm = 'lf_haa_joint'
-    lhand = 'lf_foot_Z'
+
 
     referenceConfig = [0.,
      0.,
-     0.6638277139631803,
+     0.6,
      0.,
      0.,
      0.,
      1.,
-     0.17905666752078864,
-     0.9253512562075908,
-     -0.8776870832724601,
-       0, 0, 0,
-     0.11147422537786231,
-     -0.15843632504615043,
-     1.150049183494211,
-        0, 0, 0,
-     -0.1704998924604114,
-     0.6859376445755911,
-     -1.1831277202117043,
-    0, 0, 0,
-     0.06262698472369518,
-     -0.42708925470675,
-     1.2855999319965081,
-     0, 0, 0,]
+    0, # LF
+    0.7853981633974483,
+    -1.5707963267948966,
+    0,
+    0.7853981633974483,
+    0,
+    0, # LH
+    -0.7853981633974483,
+    1.5707963267948966,
+    0,
+    -0.7853981633974483,
+    0,
+    0, # RF
+    0.7853981633974483,
+    -1.5707963267948966,
+    0,
+    0.7853981633974483,
+    0,
+    0, # RH
+    -0.7853981633974483,
+    1.5707963267948966,
+    0,
+    -0.7853981633974483,
+    0,
+]
     
     # informations required to generate the limbs databases the limbs : 
 
@@ -86,7 +96,7 @@ class Robot (Parent):
     dict_limb_color_traj = {rfoot:[0,1,0,1], lfoot:[1,0,0,1],rhand:[0,0,1,1],lhand:[0.9,0.5,0,1]}
     FOOT_SAFETY_SIZE = 0.01
     # size of the contact surface (x,y)
-    dict_size={rfoot:[0.02 , 0.02], lfoot:[0.02 , 0.02],rhand:[0.02 , 0.02],lhand:[0.02 , 0.02]}
+    dict_size={rfoot:[0.04 , 0.04], lfoot:[0.04 , 0.04],rhand:[0.04 , 0.04],lhand:[0.04 , 0.04]}
 
     #various offset used by scripts
     MRsole_offset = SE3.Identity()
