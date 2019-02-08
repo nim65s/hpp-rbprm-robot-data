@@ -44,9 +44,16 @@ SET(CATKIN_PACKAGE_SHARE_DESTINATION
 SET(CATKIN_HYQ_PACKAGE_SHARE_DESTINATION
   ${CMAKE_INSTALL_DATAROOTDIR}/hyq-rbprm)
   
+SET(CATKIN_SIMPLEHUMANOID_PACKAGE_SHARE_DESTINATION
+  ${CMAKE_INSTALL_DATAROOTDIR}/simpleHumanoid-rbprm)
+
 install(FILES
   data/hyq/package.xml
   DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
+
+install(DIRECTORY
+  data/hyq_description
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
   )
   
 install(DIRECTORY
@@ -58,12 +65,26 @@ install(DIRECTORY
   data/hyq_description
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
   )
-  
+
+install(DIRECTORY
+  data/simpleHumanoid/
+  DESTINATION ${CATKIN_SIMPLEHUMANOID_PACKAGE_SHARE_DESTINATION}
+  )
+
+install (FILES
+  src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
+  src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
+
+install (FILES
+  src/hpp/corbaserver/rbprm/simpleHumanoid_abstract/robot.py
+  src/hpp/corbaserver/rbprm/simpleHumanoid_abstract/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/simpleHumanoid_abstract)
+
 install (FILES
   src/hpp/corbaserver/rbprm/hyq/robot.py
   src/hpp/corbaserver/rbprm/hyq/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq)
-
 
 install (FILES
   src/hpp/corbaserver/rbprm/hyq_contact6D/robot.py
@@ -74,6 +95,7 @@ install (FILES
   src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
   src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
+
 
 
 SETUP_PROJECT_FINALIZE()

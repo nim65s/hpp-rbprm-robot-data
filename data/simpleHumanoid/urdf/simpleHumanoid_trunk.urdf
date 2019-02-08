@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot name="simpleHumanoid_trunk">
+  <link name="simpleHumanoid_trunk_root">
+  <inertial>
+     <mass value="70"/>
+     <inertia ixx="1." ixy="0.0" ixz="0.0" iyy="1." iyz="0.0" izz="1."/>
+  </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://simpleHumanoid-rbprm/meshes/robot_trunk_view.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://simpleHumanoid-rbprm/meshes/robot_trunk.stl"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
