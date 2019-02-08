@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<robot name="simpleHumanoid_lleg_rom">
+  <link name="llged_rom">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://simpleHumanoid-rbprm/meshes/Lleg_rom.stl"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://simpleHumanoid-rbprm/meshes/Lleg_rom.stl"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
