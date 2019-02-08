@@ -31,8 +31,8 @@ class Robot (Parent):
 
     # reference position of the end effector position for each ROM
     # TODO
-    ref_EE_lLeg = [0, 0.1,-0.7]
-    ref_EE_rLeg = [0,-0.1,-0.7]
+    ref_EE_lLeg = [0, 0.1,-1.]
+    ref_EE_rLeg = [0,-0.1,-1.]
 
 
 
