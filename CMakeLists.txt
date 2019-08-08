@@ -22,8 +22,8 @@ SET(CXX_DISABLE_WERROR true)
 
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/idl.cmake)
-INCLUDE(cmake/python.cmake)
 INCLUDE(cmake/hpp.cmake)
+INCLUDE(cmake/hpp/python.cmake)
 
 SET(PROJECT_NAME hpp-rbprm-robot-data)
 SET(PROJECT_DESCRIPTION "Database for robots using hpp-rbprm")
@@ -32,11 +32,7 @@ SET(CUSTOM_HEADER_DIR "hpp/rbprm-robot-data")
 
 SETUP_HPP_PROJECT ()
 
-# search for python
-IF(NOT DEFINED PYTHON_DESIRED_VERSION)
-  SET(PYTHON_DESIRED_VERSION 2.7)
-ENDIF()
-FINDPYTHON(${PYTHON_DESIRED_VERSION} EXACT)
+HPP_FINDPYTHON()
 
 SET(CATKIN_PACKAGE_SHARE_DESTINATION
   ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
