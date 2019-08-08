@@ -1,4 +1,5 @@
 #Importing helper class for RBPRM
+from __future__ import print_function
 from hpp.corbaserver.rbprm.rbprmbuilder import Builder
 from hpp.corbaserver.rbprm.rbprmfullbody import FullBody
 from hpp.gepetto import Viewer
@@ -124,7 +125,7 @@ def printComPosition(nbConfigs):
 		for p in points[j]:
 			f1.write(str(p[0]) + "," + str(p[1]) + "," + str(p[2]) + "\n")
 		f1.close()
-	print "%invalid ", (float)(num_invalid) / (float)(nbConfigs) * 100, "%"
+	print("%invalid ", (float)(num_invalid) / (float)(nbConfigs) * 100, "%")
 
 #~ printRootPosition(rLegId, rfoot, nbSamples)
 #~ printRootPosition(lLegId, lfoot, nbSamples)

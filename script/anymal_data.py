@@ -1,3 +1,4 @@
+from __future__ import print_function
 from hpp.corbaserver.rbprm.rbprmfullbody import FullBody
 from hpp.corbaserver.rbprm.tools.plot_analytics  import plotOctreeValues
 
@@ -63,7 +64,7 @@ def runall(lid, dbName):
 #~ runall(rarmId, './hrp2_rarm.db')
 #~ runall(larmId, './hrp2_larm.db')
 runall(lLegId, './anymal_'+lLegId+'.db')
-print "ok"
+print("ok")
 runall(rarmId, './anymal_'+rarmId+'.db')
 runall(larmId, './anymal_'+larmId+'.db')
 runall(rLegId, './anymal_'+rLegId+'.db')
