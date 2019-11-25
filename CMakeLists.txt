@@ -15,22 +15,21 @@
 # hpp-rbprm-corba.  If not, see
 # <http://www.gnu.org/licenses/>.
 
-# Requires at least CMake 2.6 to configure the package.
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
 SET(CXX_DISABLE_WERROR true)
-
-INCLUDE(cmake/base.cmake)
-INCLUDE(cmake/idl.cmake)
-INCLUDE(cmake/hpp.cmake)
-INCLUDE(cmake/python.cmake)
 
 SET(PROJECT_NAME hpp-rbprm-robot-data)
 SET(PROJECT_DESCRIPTION "Database for robots using hpp-rbprm")
 
+INCLUDE(cmake/hpp.cmake)
+INCLUDE(cmake/idl.cmake)
+INCLUDE(cmake/python.cmake)
+
 SET(CUSTOM_HEADER_DIR "hpp/rbprm-robot-data")
 
-SETUP_HPP_PROJECT ()
+COMPUTE_PROJECT_ARGS(PROJECT_ARGS LANGUAGES CXX)
+PROJECT(${PROJECT_NAME} ${PROJECT_ARGS})
 
 FINDPYTHON()
 
@@ -92,7 +91,3 @@ install (FILES
   src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
   src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
-
-
-
-SETUP_HPP_PROJECT_FINALIZE()
