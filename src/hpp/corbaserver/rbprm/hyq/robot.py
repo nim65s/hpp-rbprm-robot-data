@@ -69,7 +69,7 @@ class Robot(Parent):
     ]
 
     # informations required to generate the limbs databases the limbs :
-
+    octreeSize = 0.05
     offset = [0., 0., -0.021]
     normal = [0, 0, 1]
     legx = 0.02
