@@ -79,7 +79,7 @@ class Robot(Parent):
     lLegKinematicConstraints = kinematicConstraintsPath + lleg + "_com_constraints.obj"
     rArmKinematicConstraints = kinematicConstraintsPath + rarm + "_com_constraints.obj"
     lArmKinematicConstraints = kinematicConstraintsPath + larm + "_com_constraints.obj"
-
+    minDist = 0.1
     # data used by scripts :
     limbs_names = [rLegId, lLegId, rArmId, lArmId]
     dict_limb_joint = {rLegId: rfoot, lLegId: lfoot, rArmId: rhand, lArmId: lhand}
@@ -110,3 +110,24 @@ class Robot(Parent):
                                    self.urdfSuffix, self.srdfSuffix)
         if name != None:
             self.name = name
+
+    def loadAllLimbs(self, heuristic, analysis=None, nbSamples=nbSamples, octreeSize=octreeSize):
+        for id in self.limbs_names:
+            eff = self.dict_limb_joint[id]
+            self.addLimb(id,
+                         self.dict_limb_rootJoint[id],
+                         eff,
+                         self.dict_offset[eff].translation.tolist(),
+                         self.dict_normal[eff],
+                         self.dict_size[eff][0] / 2.,
+                         self.dict_size[eff][1] / 2.,
+                         nbSamples,
+                         heuristic,
+                         octreeSize,
+                         self.cType,
+                         kinematicConstraintsPath=self.kinematicConstraintsPath + self.dict_limb_rootJoint[id] +
+                         "_com_constraints.obj",
+                         kinematicConstraintsMin=self.minDist)
+            if analysis:
+                self.runLimbSampleAnalysis(id, analysis, True)
+

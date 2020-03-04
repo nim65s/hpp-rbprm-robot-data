@@ -32,6 +32,8 @@ class Robot(Parent):
     urdfSuffix = ""
     srdfSuffix = ""
 
+    ref_height = 0.64
+
     ref_EE_lLeg = [0.3735, 0.207, -0.57697]
     ref_EE_rLeg = [0.3735, -0.207, -0.57697]
     ref_EE_lArm = [-0.3735, 0.207, -0.57697]
