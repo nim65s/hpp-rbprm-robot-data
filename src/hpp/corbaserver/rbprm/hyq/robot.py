@@ -68,6 +68,13 @@ class Robot(Parent):
         1.5707963267948966,
     ]
 
+    postureWeights=[0,0,0,0,0,0, #FF
+    100.,1.,20.,# LF
+    100.,1.,20.,# LH
+    100.,1.,20.,# RF
+    100.,1.,20.,]# RH
+
+
     # informations required to generate the limbs databases the limbs :
     nbSamples = 50000
     octreeSize = 0.05
