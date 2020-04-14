@@ -1,0 +1,8 @@
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq" "__init__.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq" "robot.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq_abstract" "__init__.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq_abstract" "robot.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq_contact6D" "__init__.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/hyq_contact6D" "robot.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/simpleHumanoid_abstract" "__init__.py")
+PYTHON_INSTALL_ON_SITE("hpp/corbaserver/rbprm/simpleHumanoid_abstract" "robot.py")

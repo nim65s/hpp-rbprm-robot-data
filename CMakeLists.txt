@@ -1,5 +1,5 @@
-# Copyright (c) 2012 CNRS
-# Author: Florent Lamiraux
+# Copyright (c) 2012, 2020 CNRS
+# Author: Florent Lamiraux, Guilhem Saurel
 #
 # This file is part of hpp-rbprm-corba.
 # hpp-rbprm-corba is free software: you can redistribute it
@@ -15,12 +15,13 @@
 # hpp-rbprm-corba.  If not, see
 # <http://www.gnu.org/licenses/>.
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
-
-SET(CXX_DISABLE_WERROR true)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 
 SET(PROJECT_NAME hpp-rbprm-robot-data)
 SET(PROJECT_DESCRIPTION "Database for robots using hpp-rbprm")
+
+SET(PROJECT_USE_CMAKE_EXPORT TRUE)
+SET(CXX_DISABLE_WERROR TRUE)
 
 INCLUDE(cmake/hpp.cmake)
 INCLUDE(cmake/idl.cmake)
@@ -33,61 +34,19 @@ PROJECT(${PROJECT_NAME} ${PROJECT_ARGS})
 
 FINDPYTHON()
 
-SET(CATKIN_PACKAGE_SHARE_DESTINATION
-  ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
+ADD_LIBRARY(${PROJECT_NAME} INTERFACE)
+INSTALL(TARGETS ${PROJECT_NAME} EXPORT ${TARGETS_EXPORT_NAME} DESTINATION lib)
 
+install(DIRECTORY data/hyq_description
+  DESTINATION share)
 
-SET(CATKIN_HYQ_PACKAGE_SHARE_DESTINATION
-  ${CMAKE_INSTALL_DATAROOTDIR}/hyq-rbprm)
+install(DIRECTORY data/hyq/
+  DESTINATION share/hyq-rbprm)
 
-SET(CATKIN_SIMPLEHUMANOID_PACKAGE_SHARE_DESTINATION
-  ${CMAKE_INSTALL_DATAROOTDIR}/simpleHumanoid-rbprm)
+install(DIRECTORY data/hyq_description
+  DESTINATION share)
 
-install(FILES
-  data/hyq/package.xml
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION})
+install(DIRECTORY data/simpleHumanoid/
+  DESTINATION share/simpleHumanoid-rbprm)
 
-install(DIRECTORY
-  data/hyq_description
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
-  )
-
-install(DIRECTORY
-  data/hyq/
-  DESTINATION ${CATKIN_HYQ_PACKAGE_SHARE_DESTINATION}
-  )
-
-install(DIRECTORY
-  data/hyq_description
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}
-  )
-
-install(DIRECTORY
-  data/simpleHumanoid/
-  DESTINATION ${CATKIN_SIMPLEHUMANOID_PACKAGE_SHARE_DESTINATION}
-  )
-
-install (FILES
-  src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
-  src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
-  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
-
-install (FILES
-  src/hpp/corbaserver/rbprm/simpleHumanoid_abstract/robot.py
-  src/hpp/corbaserver/rbprm/simpleHumanoid_abstract/__init__.py
-  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/simpleHumanoid_abstract)
-
-install (FILES
-  src/hpp/corbaserver/rbprm/hyq/robot.py
-  src/hpp/corbaserver/rbprm/hyq/__init__.py
-  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq)
-
-install (FILES
-  src/hpp/corbaserver/rbprm/hyq_contact6D/robot.py
-  src/hpp/corbaserver/rbprm/hyq_contact6D/__init__.py
-  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_contact6D)
-
-install (FILES
-  src/hpp/corbaserver/rbprm/hyq_abstract/robot.py
-  src/hpp/corbaserver/rbprm/hyq_abstract/__init__.py
-  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/rbprm/hyq_abstract)
+ADD_SUBDIRECTORY(src)
