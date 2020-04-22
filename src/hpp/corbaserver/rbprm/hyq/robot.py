@@ -78,6 +78,7 @@ class Robot(Parent):
     # informations required to generate the limbs databases the limbs :
     nbSamples = 50000
     octreeSize = 0.05
+    cType = "_3_DOF"
     offset = [0., 0., -0.021]
     normal = [0, 0, 1]
     legx = 0.02
@@ -91,11 +92,12 @@ class Robot(Parent):
     # data used by scripts :
     limbs_names = [rLegId, lLegId, rArmId, lArmId]
     dict_limb_joint = {rLegId: rfoot, lLegId: lfoot, rArmId: rhand, lArmId: lhand}
+    dict_limb_rootJoint = {rLegId:rleg, lLegId:lleg, rArmId:rarm, lArmId:larm}
     dict_limb_color_traj = {rfoot: [0, 1, 0, 1], lfoot: [1, 0, 0, 1], rhand: [0, 0, 1, 1], lhand: [0.9, 0.5, 0, 1]}
     FOOT_SAFETY_SIZE = 0.01
     # size of the contact surface (x,y)
     dict_size = {rfoot: [0.02, 0.02], lfoot: [0.02, 0.02], rhand: [0.02, 0.02], lhand: [0.02, 0.02]}
-
+    dict_normal = {rfoot:normal, lfoot:normal, rhand:normal, lhand:normal}
     #various offset used by scripts
     MRsole_offset = SE3.Identity()
     MRsole_offset.translation = np.matrix(offset).T
