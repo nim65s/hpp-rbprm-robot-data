@@ -20,7 +20,8 @@ from hpp.corbaserver.rbprm.rbprmfullbody import FullBody as Parent
 from pinocchio import SE3, Quaternion
 import numpy as np
 
-class Robot (Parent):
+
+class Robot(Parent):
     ##
     #  Information to retrieve urdf and srdf files.
 
@@ -45,65 +46,117 @@ class Robot (Parent):
     rarm = 'rh_haa_joint'
     rhand = 'rh_foot_joint'
 
+    referenceConfig = [
+        0.,
+        0.,
+        0.6,
+        0.,
+        0.,
+        0.,
+        1.,
+        0,  # LF
+        0.7853981633974483,
+        -1.5707963267948966,
+        0,  # LH
+        -0.7853981633974483,
+        1.5707963267948966,
+        0,  # RF
+        0.7853981633974483,
+        -1.5707963267948966,
+        0,  # RH
+        -0.7853981633974483,
+        1.5707963267948966,
+    ]
 
-    referenceConfig =[0.,
-     0.,
-     0.6,
-     0.,
-     0.,
-     0.,
-     1.,
-    0, # LF
-    0.7853981633974483,
-    -1.5707963267948966,
-    0, # LH
-    -0.7853981633974483,
-    1.5707963267948966,
-    0, # RF
-    0.7853981633974483,
-    -1.5707963267948966,
-    0, # RH
-    -0.7853981633974483,
-    1.5707963267948966,
-]
-    
-    # informations required to generate the limbs databases the limbs : 
+    postureWeights = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,  #FF
+        100.,
+        1.,
+        20.,  # LF
+        100.,
+        1.,
+        20.,  # LH
+        100.,
+        1.,
+        20.,  # RF
+        100.,
+        1.,
+        20.,
+    ]  # RH
 
-    offset = [0.,0.,-0.021]
-    normal = [0,0,1]
-    legx = 0.02; legy = 0.02
-    kinematicConstraintsPath="package://hyq-rbprm/com_inequalities/"
-    rLegKinematicConstraints=kinematicConstraintsPath+rleg+"_com_constraints.obj"
-    lLegKinematicConstraints=kinematicConstraintsPath+lleg+"_com_constraints.obj" 
-    rArmKinematicConstraints=kinematicConstraintsPath+rarm+"_com_constraints.obj" 
-    lArmKinematicConstraints=kinematicConstraintsPath+larm+"_com_constraints.obj"
-
+    # informations required to generate the limbs databases the limbs :
+    nbSamples = 50000
+    octreeSize = 0.05
+    cType = "_3_DOF"
+    offset = [0., 0., -0.021]
+    normal = [0, 0, 1]
+    legx = 0.02
+    legy = 0.02
+    kinematicConstraintsPath = "package://hyq-rbprm/com_inequalities/"
+    rLegKinematicConstraints = kinematicConstraintsPath + rleg + "_com_constraints.obj"
+    lLegKinematicConstraints = kinematicConstraintsPath + lleg + "_com_constraints.obj"
+    rArmKinematicConstraints = kinematicConstraintsPath + rarm + "_com_constraints.obj"
+    lArmKinematicConstraints = kinematicConstraintsPath + larm + "_com_constraints.obj"
+    minDist = 0.1
     # data used by scripts :
-    limbs_names = [rLegId,lLegId,rArmId,lArmId]
-    dict_limb_joint = {rLegId:rfoot, lLegId:lfoot, rArmId:rhand, lArmId:lhand}
-    dict_limb_color_traj = {rfoot:[0,1,0,1], lfoot:[1,0,0,1],rhand:[0,0,1,1],lhand:[0.9,0.5,0,1]}
+    limbs_names = [rLegId, lLegId, rArmId, lArmId]
+    dict_limb_joint = {rLegId: rfoot, lLegId: lfoot, rArmId: rhand, lArmId: lhand}
+    dict_limb_rootJoint = {rLegId: rleg, lLegId: lleg, rArmId: rarm, lArmId: larm}
+    dict_limb_color_traj = {rfoot: [0, 1, 0, 1], lfoot: [1, 0, 0, 1], rhand: [0, 0, 1, 1], lhand: [0.9, 0.5, 0, 1]}
     FOOT_SAFETY_SIZE = 0.01
     # size of the contact surface (x,y)
-    dict_size={rfoot:[0.02 , 0.02], lfoot:[0.02 , 0.02],rhand:[0.02 , 0.02],lhand:[0.02 , 0.02]}
-
+    dict_size = {rfoot: [0.02, 0.02], lfoot: [0.02, 0.02], rhand: [0.02, 0.02], lhand: [0.02, 0.02]}
+    dict_normal = {rfoot: normal, lfoot: normal, rhand: normal, lhand: normal}
     #various offset used by scripts
     MRsole_offset = SE3.Identity()
     MRsole_offset.translation = np.matrix(offset).T
     MLsole_offset = MRsole_offset.copy()
     MRhand_offset = MRsole_offset.copy()
     MLhand_offset = MRsole_offset.copy()
-    dict_offset = {rfoot:MRsole_offset, lfoot:MLsole_offset, rhand:MRhand_offset, lhand:MLhand_offset}
+    dict_offset = {rfoot: MRsole_offset, lfoot: MLsole_offset, rhand: MRhand_offset, lhand: MLhand_offset}
 
     # display transform :
     MRsole_display = SE3.Identity()
     MLsole_display = SE3.Identity()
     MRhand_display = SE3.Identity()
     MLhand_display = SE3.Identity()
-    dict_display_offset = {rfoot:MRsole_display, lfoot:MLsole_display, rhand:MRhand_display, lhand:MLhand_display}
+    dict_display_offset = {rfoot: MRsole_display, lfoot: MLsole_display, rhand: MRhand_display, lhand: MLhand_display}
 
-    def __init__ (self, name = None,load = True):
-        Parent.__init__ (self,load)
+    def __init__(self, name=None, load=True):
+        Parent.__init__(self, load)
         if load:
-            self.loadFullBodyModel(self.urdfName, self.rootJointType, self.meshPackageName, self.packageName, self.urdfSuffix, self.srdfSuffix)
+            self.loadFullBodyModel(self.urdfName, self.rootJointType, self.meshPackageName, self.packageName,
+                                   self.urdfSuffix, self.srdfSuffix)
         if name != None:
             self.name = name
+
+    def loadAllLimbs(self, heuristic, analysis=None, nbSamples=nbSamples, octreeSize=octreeSize):
+        if isinstance(heuristic, str):  #only one heuristic name given assign it to all the limbs
+            dict_heuristic = {id: heuristic for id in self.limbs_names}
+        elif isinstance(heuristic, dict):
+            dict_heuristic = heuristic
+        else:
+            raise Exception("heuristic should be either a string or a map limbId:string")
+        for id in self.limbs_names:
+            eff = self.dict_limb_joint[id]
+            self.addLimb(id,
+                         self.dict_limb_rootJoint[id],
+                         eff,
+                         self.dict_offset[eff].translation.tolist(),
+                         self.dict_normal[eff],
+                         self.dict_size[eff][0] / 2.,
+                         self.dict_size[eff][1] / 2.,
+                         nbSamples,
+                         dict_heuristic[id],
+                         octreeSize,
+                         self.cType,
+                         kinematicConstraintsPath=self.kinematicConstraintsPath + self.dict_limb_rootJoint[id] +
+                         "_com_constraints.obj",
+                         kinematicConstraintsMin=self.minDist)
+            if analysis:
+                self.runLimbSampleAnalysis(id, analysis, True)
