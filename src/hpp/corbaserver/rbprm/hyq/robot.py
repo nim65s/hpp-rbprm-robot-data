@@ -137,9 +137,7 @@ class Robot(Parent):
 
     def loadAllLimbs(self, heuristic, analysis=None, nbSamples=nbSamples, octreeSize=octreeSize):
         if isinstance(heuristic, str):  #only one heuristic name given assign it to all the limbs
-            dict_heuristic = {}
-            for id in self.limbs_names:
-                dict_heuristic.update({id: heuristic})
+            dict_heuristic = {id: heuristic for id in self.limbs_names}
         elif isinstance(heuristic, dict):
             dict_heuristic = heuristic
         else:
