@@ -122,6 +122,14 @@ class Robot(Parent):
             self.name = name
 
     def loadAllLimbs(self, heuristic, analysis=None, nbSamples=nbSamples, octreeSize=octreeSize):
+        if isinstance(heuristic,str):#only one heuristic name given assign it to all the limbs
+            dict_heuristic = {}
+            for id in self.limbs_names:
+                dict_heuristic.update({id:heuristic})
+        elif isinstance(heuristic,dict):
+            dict_heuristic=heuristic
+        else : 
+            raise Exception("heuristic should be either a string or a map limbId:string")
         for id in self.limbs_names:
             eff = self.dict_limb_joint[id]
             self.addLimb(id,
@@ -132,7 +140,7 @@ class Robot(Parent):
                          self.dict_size[eff][0] / 2.,
                          self.dict_size[eff][1] / 2.,
                          nbSamples,
-                         heuristic,
+                         dict_heuristic[id],
                          octreeSize,
                          self.cType,
                          kinematicConstraintsPath=self.kinematicConstraintsPath + self.dict_limb_rootJoint[id] +
